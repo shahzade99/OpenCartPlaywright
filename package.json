@@ -9,5 +9,16 @@
   "devDependencies": {
     "@playwright/test": "^1.65.0",
     "@types/node": "^26.6.6"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahzade99/OpenCartPlaywright.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shahzade99/OpenCartPlaywright/issues"
+  },
+  "homepage": "https://github.com/shahzade99/OpenCartPlaywright#readme"
 }
