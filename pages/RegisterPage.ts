@@ -25,8 +25,10 @@ export class Register{
         this.country = page.locator("#input-country");
         this.password = page.locator("#input-password");
         this.registerBtn = page.getByRole('button',{name:'Register'});
-        this.alertMessage = page.locator("//div[@class='alert alert-danger']")
-        this.registrationHeading = page.getByText("Welcome to OpenCart, your account has been created");
+        this.alertMessage = page.locator(".alert-danger").first();
+        this.registrationHeading = page.getByText(
+            /welcome to opencart|account.{0,50}created|created.{0,50}account/i
+        ).first();
     }
 
 
@@ -45,7 +47,13 @@ export class Register{
 
     // Get Heading confirmation
     async registrationConfirmation(): Promise<string>{
-        await this.registrationHeading.waitFor({ state: "visible" });
+        await this.registrationHeading.or(this.alertMessage).waitFor({ state: "visible" });
+
+        if (await this.alertMessage.isVisible()) {
+            const errorMessage = (await this.alertMessage.innerText()).trim();
+            throw new Error(`Registration failed: ${errorMessage}`);
+        }
+
         return (await this.registrationHeading.innerText()).trim();
 
     }

@@ -2,15 +2,18 @@ import {test as base, expect} from "@playwright/test";
 import { HomePage } from "../pages/HomePage";
 import { LoginPage } from "../pages/loginPage";
 import { Register } from "../pages/RegisterPage";
+import { ProductPage } from "../pages/ProductPage";
 
 
-const APP_URL = "https://www.opencart.com";
+//const APP_URL = "https://www.opencart.com";
+const APP_URL = "https://awesomeqa.com/ui"
 
 
 type pageFixtures = {
     homePage : HomePage;
     loginPage: LoginPage;
     registerPage: Register;
+    productPage: ProductPage;
 };
 
 /**
@@ -35,6 +38,10 @@ export const test = base.extend<pageFixtures> ({
     registerPage: async({page},use) =>
     {
         await use(new Register(page))
+    },
+    productPage: async({page},use) =>
+    {
+        await use(new ProductPage(page))
     }
 });
 
