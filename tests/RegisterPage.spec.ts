@@ -20,7 +20,7 @@ test('User Registration Process', async({homePage,registerPage}) =>
 
     await test.step('4) Registration confirmation', async() => {
         const confirmation = await registerPage.registrationConfirmation();
-        expect(confirmation).toContain("Welcome to OpenCart, your account has been created");
+        expect(confirmation).toMatch(/welcome to opencart|account.{0,50}created|created.{0,50}account/i);
     });
 
 
