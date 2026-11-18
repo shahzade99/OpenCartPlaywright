@@ -1,0 +1,32 @@
+[
+    {
+        "testname":"Valid Login",
+        "email": "pavanol@xyz.com",
+        "password": "test@123",
+        "expected": "success"
+    },
+        {
+        "testname":"Invalid Login",
+        "email": "abc@xyz.com",
+        "password": "tasdfs",
+        "expected": "failure"
+    },
+        {
+        "testname":"Invalid Login",
+        "email": " ",
+        "password": "test@123",
+        "expected": "failure"
+    },
+        {
+        "testname":"Invalid Login",
+        "email": "pavanol@xyz.com",
+        "password": " ",
+        "expected": "failure"
+    },
+        {
+        "testname":"Invalid Login",
+        "email": " ",
+        "password": " ",
+        "expected": "failure"
+    }
+]
