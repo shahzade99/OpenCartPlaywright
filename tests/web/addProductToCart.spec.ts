@@ -21,7 +21,7 @@ test("Add Products to the Cart", async ({page}) => {
   await cartTotal.click();
 });*/
 
-import {test, expect} from "../fixtures/pageFixtures";
+import {test, expect} from "../../fixtures/pageFixtures";
 
 test("Add Products to Cart", async ({homePage,productPage}) => {
 

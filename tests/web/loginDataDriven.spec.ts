@@ -1,6 +1,6 @@
 import path from "path";
-import { expect, test } from "../fixtures/pageFixtures";
-import { DataProvider } from "../utils/DataReader";
+import { expect, test } from "../../fixtures/pageFixtures";
+import { DataProvider } from "../../utils/DataReader";
 
 interface LoginDataRow {
     testname: string;

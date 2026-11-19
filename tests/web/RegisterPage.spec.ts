@@ -1,4 +1,4 @@
-import {test, expect} from "../fixtures/pageFixtures";
+import {test, expect} from "../../fixtures/pageFixtures";
 import { Helper } from "../helper";
 test.setTimeout(120000);
 

@@ -1,0 +1,11 @@
+{
+    "firstname": "Mohammed",
+    "lastname": "Shahzad",
+    "totalprice": 131,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2016-01-01",
+        "checkout": "2017-01-01"
+    },
+    "additionalneeds": "Brunch"
+}

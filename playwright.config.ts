@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from 'playwright/test';
 
 /**
  * Read environment variables from file.
@@ -20,7 +20,8 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  //workers: process.env.CI ? 1 : undefined,  // deselect by Shahzad
+    ...(process.env.CI ? { workers: 1 } : {}), // added by Shahzad
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -32,6 +33,13 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    baseURL: 'https://restful-booker.herokuapp.com',  // updated by Shahzad for api testing
+
+    extraHTTPHeaders:{                 // updated by shahzad for headers in API
+      Accept:"application/json",
+      "content-Type": "application/json",  // updated by shahzad for post call
+    },
+    
 
   },
 

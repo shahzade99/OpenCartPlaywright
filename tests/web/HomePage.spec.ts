@@ -3,7 +3,7 @@
  * verify home page is visible
  */
 
-import {test,expect} from "../fixtures/pageFixtures";
+import {test,expect} from "../../fixtures/pageFixtures";
 
 
 test("Valid login flow", async ({homePage}) =>{
