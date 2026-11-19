@@ -33,7 +33,7 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    baseURL: 'https://restful-booker.herokuapp.com',  // updated by Shahzad for api testing
+    //baseURL: 'https://restful-booker.herokuapp.com',  // updated by Shahzad for api testing
 
     extraHTTPHeaders:{                 // updated by shahzad for headers in API
       Accept:"application/json",

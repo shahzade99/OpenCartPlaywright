@@ -19,4 +19,12 @@ export class Helper{
             rpassword:"test@123"
         }
     }
+
+    static getdemoBlazeRegisterDetails()
+    {
+        return{
+            uemail:"pavanol",
+            upassword:"test@123"
+        }
+    }
 }

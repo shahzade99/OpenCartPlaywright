@@ -1,8 +1,9 @@
 import {test as base, expect} from "@playwright/test";
 import { HomePage } from "../pages/HomePage";
-import { LoginPage } from "../pages/loginPage";
+import { LoginPage } from "../pages/LoginPage"
 import { Register } from "../pages/RegisterPage";
 import { ProductPage } from "../pages/ProductPage";
+import { demoblazeLoginPage } from "../pages/demoBlazePOMPages/demoBlazeLoginPage";
 
 
 //const APP_URL = "https://www.opencart.com";
@@ -14,6 +15,7 @@ type pageFixtures = {
     loginPage: LoginPage;
     registerPage: Register;
     productPage: ProductPage;
+    demoLoginFixture: demoblazeLoginPage;
 };
 
 /**
@@ -42,7 +44,11 @@ export const test = base.extend<pageFixtures> ({
     productPage: async({page},use) =>
     {
         await use(new ProductPage(page))
-    }
+    },
+    demoLoginFixture: async({page},use) =>
+    {
+        await use(new demoblazeLoginPage(page))
+    },
 });
 
 

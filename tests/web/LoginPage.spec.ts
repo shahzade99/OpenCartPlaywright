@@ -1,5 +1,5 @@
 import {test, expect} from "../../fixtures/pageFixtures";
-import { Helper } from "../helper";
+import { Helper } from "../../utils/helper;
 import { HomePage } from "../../pages/HomePage";
 
 test("validate login process", async ({homePage,loginPage}) =>
