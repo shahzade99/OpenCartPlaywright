@@ -1,5 +1,6 @@
 import {Page,Locator} from "@playwright/test";
 
+
 export class demoblazeLoginPage{
 
     // page fixture property declaration
@@ -36,7 +37,7 @@ export class demoblazeLoginPage{
         await this.loginOption.click();
         await this.username.fill(uname);
         await this.password.fill(pass);
-        await this.submitBtn.click()
+        await this.submitBtn.click();
     }
 }
 

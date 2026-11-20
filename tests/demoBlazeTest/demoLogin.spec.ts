@@ -4,9 +4,9 @@ import {Helper} from "../../utils/helper";
 
 const {uemail, upassword} = Helper.getdemoBlazeRegisterDetails();
 
+
 test("DemoBlaze Login Process", async({demoLoginFixture}) => 
 {
-  test.setTimeout(5000);
   await test.step('1) Navigate to the url', async() => {
     await demoLoginFixture.navigateToURL();
   })
