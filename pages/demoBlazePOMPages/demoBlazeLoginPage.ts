@@ -1,4 +1,4 @@
-import {Page,Locator} from "@playwright/test";
+import {Page,Locator,Dialog} from "@playwright/test";
 
 
 export class demoblazeLoginPage{
@@ -12,6 +12,7 @@ export class demoblazeLoginPage{
     private readonly username:Locator;
     private readonly password:Locator;
     private readonly submitBtn: Locator;
+    private readonly logoutOption: Locator;
 
 
     // Initializae the above props through constructor
@@ -22,6 +23,7 @@ export class demoblazeLoginPage{
         this.username = page.locator('#loginusername')
         this.password = page.locator('#loginpassword')
         this.submitBtn = page.getByRole('button', { name: 'Log in' })
+        this.logoutOption = page.getByRole('link', { name: 'Log out', exact: true })
     }
 
 
@@ -37,7 +39,25 @@ export class demoblazeLoginPage{
         await this.loginOption.click();
         await this.username.fill(uname);
         await this.password.fill(pass);
-        await this.submitBtn.click();
+
+        let dialogMessage: string | undefined;
+        const dialogHandler = async (dialog: Dialog) => {
+            dialogMessage = dialog.message();
+            await dialog.accept();
+        };
+
+        this.page.on('dialog', dialogHandler);
+        try {
+            await this.submitBtn.click();
+        } finally {
+            this.page.off('dialog', dialogHandler);
+        }
+
+        if (dialogMessage !== undefined) {
+            throw new Error(`Login failed: ${dialogMessage}`);
+        }
+
+        await this.logoutOption.waitFor({ state: 'visible' });
     }
 }
 

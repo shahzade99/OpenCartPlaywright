@@ -10,7 +10,7 @@ test("DemoBlaze Product Add", async ({ page, demoProductFixture, demoLoginFixtur
         await demoProductFixture.addProductToCart("Nokia lumia 1520");
     })
 
-    await test.step('3) Check the cart and validate prodcut added', async () => {
+    await test.step('3) Check the cart content', async () => {
         await demoProductFixture.gotoCart();
         await expect(page.getByText("Nokia lumia 1520", { exact: true })).toBeVisible();
     })
@@ -18,3 +18,11 @@ test("DemoBlaze Product Add", async ({ page, demoProductFixture, demoLoginFixtur
     
 
 })
+
+
+//ai.
+/**
+ * 1. separate the cart page
+ * 2. make the input as dynamic in both cart and product page
+ * 3. expect validate it.
+ */

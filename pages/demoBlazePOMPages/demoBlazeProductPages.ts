@@ -10,6 +10,7 @@ export class demoBlazeProductPage{
     private readonly productList:Locator;
     private readonly addToCartBtn:Locator;
     private readonly cart:Locator;
+    private readonly numberOfProducts:Locator;
 
 
     // Initializae the above props through constructor
@@ -20,6 +21,7 @@ export class demoBlazeProductPage{
         //tbody is the container, .card-title is the heading and 'a' is the product name link
         this.addToCartBtn = page.getByRole("link",{name:'Add to Cart'});
         this.cart = page.getByRole("link",{name:'Cart', exact:true});
+        this.numberOfProducts = page.locator('//tbody[@id="tbodyid"]/tr/td[2]');
     }
 
 
@@ -51,5 +53,21 @@ export class demoBlazeProductPage{
         await this.cart.click();
                 
 
+    }
+
+    async validateProductCart(productName:string)
+    {
+        const Counts = await this.numberOfProducts.count();
+
+        for (let index = 0; index < Counts; index++)
+        {
+            const productNamess = this.numberOfProducts.nth(index);
+
+            if (productName === (await productNamess.innerText()).trim())
+            {
+                console.log(productName);
+
+            }    
+        }
     }
 }    

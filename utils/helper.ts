@@ -27,4 +27,11 @@ export class Helper{
             upassword:"test@123"
         }
     }
+
+    static productNames()
+    {
+        return{
+            productName:["Nokia lumia 1520","Samasung galaxy s7","Samsung galaxy s6"]
+        }
+    }
 }
